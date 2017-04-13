@@ -16,8 +16,7 @@ var hbshelpsers = require('./hbshelpers/helpers');
 
 var mongo_pw = process.env.MONGO_PW;
 //var url = 'mongodb://admin:' + mongo_pw + '@localhost:27017/birds?authSource=admin';
-var url = 'mongodb://localhost:27017/birds';
-
+var url = process.env.MONGO_URL;
 mongoose.connect(url);
 
 var app = express();
