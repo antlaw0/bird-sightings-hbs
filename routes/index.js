@@ -72,6 +72,18 @@ router.post('/', function(req, res, next){
   })
 });
 
+//delete the bird
+router.post('/deleteBird', function(req, res, next){
+	Bird.findById(req.body.id, function(err, bird){
+	if (!err){	
+	console.log("Bird with name "+bird.name+" has been deleted");	
+	bird.remove();
+	}//end of if no error
+	});//end of query database
+	
+	});//end of call to delete bird
+
+
 router.post('/addDate', function(req, res, next){
 
   if (!req.body.dateSeen) {

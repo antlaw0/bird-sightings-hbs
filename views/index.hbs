@@ -12,10 +12,12 @@
 
   <form action="/" method="POST">
     Name: <input name="name" type="text" required>
+    
     <br>
-    Description: <input name="description" type="text">
+	
+	Description: <input name="description" type="text">
     <br>
-    Average Eggs Laid: <input name="averageEggsLaid" type="number" min="1" max="50">
+    Average Eggs Laid: <input name="averageEggsLaid" type="number" min=1 max=50>
     <br>
     Threatened? <input name="threatened" type="checkbox">
     <br>
@@ -23,7 +25,7 @@
     <br>
     Nest materials: <input name="nestMaterials" type="text">
     <br>
-    Date seen: <input name="dateSeen" type="datetime-local">
+    Date seen: <input name="dateSeen" type="datetime-local" required>
     <br>
     <input name="addBird" type="submit" value="Add new sighting">
     <br>
@@ -36,6 +38,12 @@
   <h3>All sightings</h3>
 
   {{# each birds}}
+  <form action="/deleteBird" method="POST">
+      <input name="delete" type="submit" value="{{this._id}}">Delete</input>
+    
+    </form>
+	
+  <br>
     <p>Name: {{this.name}}</p>
     <p>Description: {{this.description}}</p>
     <p>Average eggs laid: {{this.averageEggsLaid}}</p>
